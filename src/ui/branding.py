@@ -1,6 +1,8 @@
 """Logo na barra lateral (assets/Logo.png). Se o arquivo não existir, o app segue sem logo."""
 from __future__ import annotations
 
+import base64
+from functools import lru_cache
 from pathlib import Path
 
 import streamlit as st
@@ -19,15 +21,28 @@ def find_logo() -> Path | None:
     return None
 
 
+# converte a imagem em texto (data URI) pra ela ir embutida na pagina.
+# assim nao depende do armazenamento de arquivos do streamlit, que na nuvem as vezes perde a imagem
+@lru_cache(maxsize=4)
+def _data_uri(path: str, mtime: float) -> str:
+    mime = "image/png" if path.lower().endswith(".png") else "image/jpeg"
+    raw = Path(path).read_bytes()
+    return f"data:{mime};base64," + base64.b64encode(raw).decode("ascii")
+
+
 # mostra o logo com fallback pra versoes antigas do streamlit
 def show_logo() -> bool:
     logo = find_logo()
     if logo is None:
         return False
     try:
-        st.logo(str(logo), size="large")
+        src = _data_uri(str(logo), logo.stat().st_mtime)
+    except OSError:
+        src = str(logo)        # se nao deu pra ler, tenta o caminho normal
+    try:
+        st.logo(src, size="large")
     except TypeError:          # Streamlit sem o parâmetro `size`
-        st.logo(str(logo))
+        st.logo(src)
     except AttributeError:     # Streamlit < 1.35 (sem st.logo)
         st.sidebar.image(str(logo), width=140)
     return True

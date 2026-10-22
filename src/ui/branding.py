@@ -9,6 +9,39 @@ import streamlit as st
 
 from src.config import ASSETS_DIR, LOGO_NAME
 
+# altura do logo na barra lateral. aumenta ou diminui aqui se quiser (ex: 5, 7, 9)
+LOGO_HEIGHT_REM = 7
+
+# css que deixa o logo maior e no meio da barra lateral.
+# o botao de recolher a barra vai pro canto, sem atrapalhar o logo
+_LOGO_CSS = f"""
+<style>
+[data-testid="stSidebarHeader"] {{
+    justify-content: center;
+    height: auto;
+    padding-top: 1.2rem;
+    padding-bottom: 0.4rem;
+}}
+[data-testid="stSidebarHeader"] a,
+[data-testid="stSidebarHeader"] div:has(> [data-testid="stLogo"]) {{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}}
+[data-testid="stLogo"] {{
+    height: {LOGO_HEIGHT_REM}rem;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+}}
+[data-testid="stSidebarCollapseButton"] {{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}}
+</style>
+"""
+
 
 # acha o logo na pasta assets. se nao tiver logo o app roda do mesmo jeito
 def find_logo() -> Path | None:
@@ -45,4 +78,9 @@ def show_logo() -> bool:
         st.logo(src)
     except AttributeError:     # Streamlit < 1.35 (sem st.logo)
         st.sidebar.image(str(logo), width=140)
+    # css extra pra centralizar e aumentar (se o streamlit ignorar, o logo fica no padrao)
+    try:
+        st.markdown(_LOGO_CSS, unsafe_allow_html=True)
+    except Exception:
+        pass
     return True

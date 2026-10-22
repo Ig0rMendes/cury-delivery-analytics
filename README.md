@@ -9,11 +9,12 @@
 Painel executivo em **Streamlit + Plotly** que transforma os pedidos de uma operação de delivery na Índia em **decisões**:
 mostra quanto tempo o cliente realmente espera, o que mais pesa nessa espera e **quantos minutos cada ação pode recuperar**.
 
-> 🔗 **Demo online:** _[link do deploy]_ &nbsp;·&nbsp; 📂 **Repositório:** _[link do repositório]_
+> 🔗 **Demo online:** [Abrir o painel](https://cury-delivery-analytics-ghijfz5ndwznvpqbqn6nux.streamlit.app/)
+>
+> 📂 **Repositório:** [Ig0rMendes/cury-delivery-analytics](https://github.com/Ig0rMendes/cury-delivery-analytics)
 
-
-[Capa do Projeto](docs/img/00-home.png) 
-
+### Prérevia do painel
+![Capa do Projeto](docs/img/00_home.png)
 ---
 
 ## Sumário
@@ -293,14 +294,9 @@ e efeitos conhecidos, para verificar que:
 ## 📚 Fonte dos dados
 
 Base pública **`train`** (`train.csv`), conjunto de dados de entregas de comida na Índia amplamente distribuído em plataformas
-de dados abertos. _[Preencha o link e a licença da fonte onde você baixou o arquivo; verifique se a licença permite redistribuição.]_
-O arquivo **não é distribuído neste repositório** (a pasta `data/` é mantida vazia e ignorada pelo Git).
+de dados abertos. O arquivo train.csv está incluído em data/ para que o painel online funcione
 
 ## 👤 Autor
 
 **Igor Mendes**
 &nbsp;·&nbsp; [LinkedIn](www.linkedin.com/in/igor-mendes-a50550239) &nbsp;·&nbsp; [GitHub](https://github.com/Ig0rMendes) &nbsp;·&nbsp; igorsamendes13@gmail.com
-
-## 📄 Licença
-
-_[Escolha uma licença antes de publicar, por exemplo MIT: https://choosealicense.com/. Sem licença, o código tem "todos os direitos reservados" por padrão.]_

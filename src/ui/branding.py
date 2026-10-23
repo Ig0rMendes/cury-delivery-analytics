@@ -9,8 +9,8 @@ import streamlit as st
 
 from src.config import ASSETS_DIR, LOGO_NAME
 
-# altura do logo na barra lateral. aumenta ou diminui aqui se quiser (ex: 5, 7, 9)
-LOGO_HEIGHT_REM = 7
+# largura do logo em % da barra lateral. aumenta ou diminui aqui se quiser (ex: 70, 85, 100)
+LOGO_WIDTH_PCT = 92
 
 # css que deixa o logo maior e no meio da barra lateral.
 # o botao de recolher a barra vai pro canto, sem atrapalhar o logo
@@ -31,9 +31,9 @@ _LOGO_CSS = f"""
 }}
 /* a imagem em si (o st.logo coloca alt="Logo") */
 [data-testid="stSidebar"] img[alt="Logo"] {{
-    height: {LOGO_HEIGHT_REM}rem !important;
+    width: {LOGO_WIDTH_PCT}% !important;
+    height: auto !important;
     max-height: none !important;
-    width: auto !important;
     max-width: 100% !important;
     object-fit: contain !important;
     margin: 0 auto !important;

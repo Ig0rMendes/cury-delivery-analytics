@@ -10,7 +10,7 @@ import streamlit as st
 from src.config import ASSETS_DIR, LOGO_NAME
 
 # altura do logo na barra lateral. aumenta ou diminui aqui se quiser (ex: 5, 7, 9)
-LOGO_HEIGHT_REM = 7
+LOGO_HEIGHT_REM = 20
 
 # css que deixa o logo maior e no meio da barra lateral.
 # o botao de recolher a barra vai pro canto, sem atrapalhar o logo

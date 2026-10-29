@@ -10,8 +10,6 @@ Painel executivo em **Streamlit + Plotly** que transforma os pedidos de uma oper
 mostra quanto tempo o cliente realmente espera, o que mais pesa nessa espera e **quantos minutos cada ação pode recuperar**.
 
 > 🔗 **Demo online:** [Abrir o painel](https://cury-delivery-analytics-ghijfz5ndwznvpqbqn6nux.streamlit.app/)
->
-> 📂 **Repositório:** [Ig0rMendes/cury-delivery-analytics](https://github.com/Ig0rMendes/cury-delivery-analytics)
 
 ### Prérevia do painel
 ![Capa do Projeto](docs/img/00_home.png)
